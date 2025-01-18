@@ -1,5 +1,9 @@
 ﻿.vs
-UserPhoneTest.Api/obj
-UserPhoneTest.Application/obj
-UserPhoneTest.Domain/obj
-UserPhoneTest.Infrastructure/obj
+UserPhoneTest.Api/bin/*
+UserPhoneTest.Application/bin/*
+UserPhoneTest.Domain/bin/*
+UserPhoneTest.Infrastructure/bin/*
+UserPhoneTest.Api/obj/*
+UserPhoneTest.Application/obj/*
+UserPhoneTest.Domain/obj/*
+UserPhoneTest.Infrastructure/obj/*

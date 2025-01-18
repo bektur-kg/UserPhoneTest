@@ -1,6 +1,6 @@
 ﻿namespace UserPhoneTest.Domain.Modules.Phones;
 
-public class PhoneConstants
+public abstract class PhoneAttributeConstants
 {
     /// <summary>
     /// Phone number regex. Example that matches: +996771123456
