@@ -1,0 +1,10 @@
+2025-01-18 16:02:19.675 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7292/api/users - null null
+2025-01-18 16:02:19.725 +06:00 [INF] Executing endpoint 'UserPhoneTest.Api.Controllers.UsersController.GetUsers (UserPhoneTest.Api)'
+2025-01-18 16:02:19.731 +06:00 [INF] Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUsers(System.Threading.CancellationToken) on controller UserPhoneTest.Api.Controllers.UsersController (UserPhoneTest.Api).
+2025-01-18 16:02:19.759 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[DateOfBirth], [u].[Email], [u].[Name]
+FROM [Users] AS [u]
+2025-01-18 16:02:19.765 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[UserPhoneTest.Application.Contracts.Users.UserResponse, UserPhoneTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-18 16:02:19.769 +06:00 [INF] Executed action UserPhoneTest.Api.Controllers.UsersController.GetUsers (UserPhoneTest.Api) in 31.4829ms
+2025-01-18 16:02:19.770 +06:00 [INF] Executed endpoint 'UserPhoneTest.Api.Controllers.UsersController.GetUsers (UserPhoneTest.Api)'
+2025-01-18 16:02:19.772 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7292/api/users - 200 null application/json; charset=utf-8 106.5872ms
