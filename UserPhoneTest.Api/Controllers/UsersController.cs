@@ -4,6 +4,7 @@ using UserPhoneTest.Application.Contracts.Users;
 using UserPhoneTest.Application.Features.Users.Create;
 using UserPhoneTest.Application.Features.Users.Delete;
 using UserPhoneTest.Application.Features.Users.GetAll;
+using UserPhoneTest.Application.Features.Users.GetById;
 
 namespace UserPhoneTest.Api.Controllers;
 
@@ -52,5 +53,15 @@ public class UsersController(ISender sender) : ControllerBase
         var response = await _sender.Send(command, cancellationToken);
 
         return response.IsSuccess ? Ok() : BadRequest(response.Error);
+    }
+
+    [HttpGet(userIdParameter)]
+    public async Task<IActionResult> GetById(int userId, CancellationToken cancellationToken)
+    {
+        var query = new GetUserQuery(userId);
+
+        var response = await _sender.Send(query, cancellationToken);
+
+        return response.IsSuccess ? Ok(response.Value) : BadRequest(response.Error);
     }
 }

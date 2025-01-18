@@ -7,13 +7,19 @@ using UserPhoneTest.Application.Repositories;
 namespace UserPhoneTest.Application.Features.Users.GetById;
 
 internal sealed class GetUserQueryHandler(IUserRepository userRepository, IMapper mapper)
-    : IQueryHandler<GetUserQuery, Result<UserResponse, Error>>
+    : IQueryHandler<GetUserQuery, Result<UserDetailedResponse, Error>>
 {
     private readonly IUserRepository _userRepository = userRepository;
     private readonly IMapper _mapper = mapper;
 
-    public async Task<Result<UserResponse, Error>> Handle(GetUserQuery request, CancellationToken cancellationToken)
+    public async Task<Result<UserDetailedResponse, Error>> Handle(GetUserQuery request, CancellationToken cancellationToken)
     {
-        var foundUser = await _userRepository.GetByIdAsyncWithInclude();
+        var foundUser = await _userRepository.GetByIdAsyncWithInclude(request.UserId, includePhones: true, cancellationToken);
+
+        if (foundUser is null) return Result.Failure<UserDetailedResponse, Error>(UserErrors.UserNotFound);
+
+        var mappedUser = _mapper.Map<UserDetailedResponse>(foundUser);
+
+        return Result.Success<UserDetailedResponse, Error>(mappedUser);
     }
 }

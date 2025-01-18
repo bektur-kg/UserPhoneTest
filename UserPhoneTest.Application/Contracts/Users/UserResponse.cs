@@ -1,6 +1,4 @@
-﻿using UserPhoneTest.Application.Contracts.Phones;
-
-namespace UserPhoneTest.Application.Contracts.Users;
+﻿namespace UserPhoneTest.Application.Contracts.Users;
 
 public record UserResponse
 {
@@ -11,6 +9,4 @@ public record UserResponse
     public required string Email { get; init; }
 
     public DateOnly DateOfBirth { get; init; }
-
-    public List<PhoneResponse> Phones { get; init; } = [];
 }

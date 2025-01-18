@@ -9,5 +9,7 @@ public class PhoneContractsMappings : Profile
     public PhoneContractsMappings()
     {
         CreateMap<Phone, PhoneResponse>();
+
+        CreateMap<UpdatePhoneRequest, Phone>();
     }
 }

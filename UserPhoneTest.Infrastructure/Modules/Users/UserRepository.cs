@@ -10,7 +10,12 @@ public class UserRepository(AppDbContext dbContext) : BaseRepository<User>(dbCon
 {
     public Task<bool> DoesUserExistAsync(string email, CancellationToken cancellationToken = default)
     {
-        return DbContext.Users.AnyAsync(u => u.Email == email);
+        return DbContext.Users.AnyAsync(u => u.Email == email, cancellationToken);
+    }
+
+    public Task<bool> DoesUserExistAsync(int userId, CancellationToken cancellationToken = default)
+    {
+        return DbContext.Users.AnyAsync(u => u.Id == userId, cancellationToken);
     }
 
     public Task<User?> GetByIdAsyncWithInclude(int id, bool includePhones = false, CancellationToken cancellationToken = default)
@@ -19,6 +24,6 @@ public class UserRepository(AppDbContext dbContext) : BaseRepository<User>(dbCon
 
         if (includePhones) query.Include(u => u.Phones);
 
-        return query.FirstOrDefaultAsync(u => u.Id == id);
+        return query.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
     }
 }
