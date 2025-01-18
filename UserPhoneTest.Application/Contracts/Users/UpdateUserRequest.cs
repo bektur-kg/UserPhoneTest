@@ -1,16 +1,15 @@
-﻿using UserPhoneTest.Application.Contracts.Phones;
+﻿using System.ComponentModel.DataAnnotations;
+using UserPhoneTest.Domain.Modules.Users;
 
 namespace UserPhoneTest.Application.Contracts.Users;
 
-public record UserResponse
+public record UpdateUserRequest
 {
-    public int Id { get; init; }
-
+    [MaxLength(UserAttributeConstants.MaxNameLength)]
     public required string Name { get; init; }
 
+    [EmailAddress]
     public required string Email { get; init; }
 
     public DateOnly DateOfBirth { get; init; }
-
-    public List<PhoneResponse> Phones { get; init; } = [];
 }

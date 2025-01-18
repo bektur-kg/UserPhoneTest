@@ -4,4 +4,4 @@ using UserPhoneTest.Application.Contracts.Users;
 
 namespace UserPhoneTest.Application.Features.Users.GetAll;
 
-public sealed record GetAllUsersQuery : IQuery<Result<List<UserResponse>>>;
+public sealed record GetUsersQuery : IQuery<Result<List<UserResponse>>>;

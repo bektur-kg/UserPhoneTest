@@ -2,7 +2,7 @@
 
 public record PhoneResponse
 {
-    public required string PhoneNumber { get; init; }
+    public int Id { get; init; }
 
-    public int UserId { get; init; }
+    public required string PhoneNumber { get; init; }
 }
