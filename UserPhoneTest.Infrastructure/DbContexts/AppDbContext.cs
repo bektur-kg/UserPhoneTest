@@ -7,7 +7,7 @@ namespace UserPhoneTest.Infrastructure.DbContexts;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public DbSet<Phone> Posts => Set<Phone>();
+    public DbSet<Phone> Phones => Set<Phone>();
     public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

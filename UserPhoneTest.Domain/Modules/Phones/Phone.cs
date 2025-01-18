@@ -7,6 +7,7 @@ namespace UserPhoneTest.Domain.Modules.Phones;
 public class Phone : Entity
 {
     [RegularExpression(PhoneAttributeConstants.InternationalPhoneRegex)]
+    [MaxLength(PhoneAttributeConstants.PhoneNumberMaxLength)]
     public required string PhoneNumber { get; set; }
 
     public int UserId { get; set; }

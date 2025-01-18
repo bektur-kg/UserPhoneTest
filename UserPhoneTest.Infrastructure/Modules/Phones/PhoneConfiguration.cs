@@ -14,6 +14,10 @@ public class PhoneConfiguration : IEntityTypeConfiguration<Phone>
 
         builder.Property(p => p.PhoneNumber)
             .IsRequired()
-            .HasAnnotation("Regex", PhoneAttributeConstants.InternationalPhoneRegex);
+            .HasMaxLength(PhoneAttributeConstants.PhoneNumberMaxLength);
+
+        builder.HasIndex(u => u.PhoneNumber)
+            .IsUnique()
+            .HasDatabaseName("IX_Phone_PhoneNumber");
     }
 }
