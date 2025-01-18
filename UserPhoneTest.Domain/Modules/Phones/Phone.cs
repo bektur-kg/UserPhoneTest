@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using UserPhoneTest.Domain.Abstractions;
+﻿using CSharpFunctionalExtensions;
+using System.ComponentModel.DataAnnotations;
 using UserPhoneTest.Domain.Modules.Users;
 
 namespace UserPhoneTest.Domain.Modules.Phones;
 
-public class Phone : Entity
+public class Phone : Entity<int>
 {
     [RegularExpression(PhoneAttributeConstants.InternationalPhoneRegex)]
     [MaxLength(PhoneAttributeConstants.PhoneNumberMaxLength)]

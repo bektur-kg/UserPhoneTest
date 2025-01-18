@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using UserPhoneTest.Domain.Abstractions;
+﻿using CSharpFunctionalExtensions;
+using System.ComponentModel.DataAnnotations;
 using UserPhoneTest.Domain.Modules.Phones;
 
 namespace UserPhoneTest.Domain.Modules.Users;
 
-public class User : Entity
+public class User : Entity<int>
 {
     [MaxLength(UserAttributeConstants.MaxNameLength)]
     public required string Name { get; set; }

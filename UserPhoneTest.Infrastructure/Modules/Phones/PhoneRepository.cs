@@ -1,5 +1,10 @@
-﻿namespace UserPhoneTest.Infrastructure.Modules.Phones;
+﻿using UserPhoneTest.Application.Repositories;
+using UserPhoneTest.Domain.Modules.Phones;
+using UserPhoneTest.Infrastructure.DbContexts;
+using UserPhoneTest.Infrastructure.Services;
 
-public class PhoneRepository
+namespace UserPhoneTest.Infrastructure.Modules.Phones;
+
+public class PhoneRepository(AppDbContext dbContext) : BaseRepository<Phone>(dbContext), IPhoneRepository
 {
 }
