@@ -1,0 +1,5 @@
+﻿.vs
+UserPhoneTest.Api/obj
+UserPhoneTest.Application/obj
+UserPhoneTest.Domain/obj
+UserPhoneTest.Infrastructure/obj
