@@ -22,7 +22,7 @@ public class UserRepository(AppDbContext dbContext) : BaseRepository<User>(dbCon
     {
         var query = DbContext.Users.AsNoTracking();
 
-        if (includePhones) query.Include(u => u.Phones);
+        if (includePhones) query = query.Include(u => u.Phones);
 
         return query.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
     }

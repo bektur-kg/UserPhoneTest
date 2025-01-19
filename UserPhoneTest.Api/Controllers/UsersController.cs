@@ -36,9 +36,9 @@ public class UsersController(ISender sender) : ControllerBase
     }
 
     [HttpDelete(userIdParameter)]
-    public async Task<IActionResult> Delete(int userId, CancellationToken cancellationToken)
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {
-        var command = new DeleteUserCommand(userId);
+        var command = new DeleteUserCommand(id);
 
         var response = await _sender.Send(command, cancellationToken);
 
@@ -46,9 +46,9 @@ public class UsersController(ISender sender) : ControllerBase
     }
 
     [HttpPut(userIdParameter)]
-    public async Task<IActionResult> Update(int userId, CancellationToken cancellationToken)
+    public async Task<IActionResult> Update(int id, CancellationToken cancellationToken)
     {
-        var command = new DeleteUserCommand(userId);
+        var command = new DeleteUserCommand(id);
 
         var response = await _sender.Send(command, cancellationToken);
 
@@ -56,9 +56,9 @@ public class UsersController(ISender sender) : ControllerBase
     }
 
     [HttpGet(userIdParameter)]
-    public async Task<IActionResult> GetById(int userId, CancellationToken cancellationToken)
+    public async Task<IActionResult> GetById(int id, CancellationToken cancellationToken)
     {
-        var query = new GetUserQuery(userId);
+        var query = new GetUserQuery(id);
 
         var response = await _sender.Send(query, cancellationToken);
 
